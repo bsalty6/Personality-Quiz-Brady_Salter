@@ -19,3 +19,23 @@ buttons.forEach(function (button) {
     button.classList.add("active");   // add the Bootstrap class "active" to the clicked button
   });
 });
+
+const resultDescriptions = {
+  beach: "The Beach! You are relaxed and easygoing. You like to take it slow and enjoy the sun.",
+  city: "The City! You are curious and energetic. You like to explore and try new things.",
+  cabin: "The Cabin! You are calm and quiet. You like nature and time to recharge.",
+  themepark: "The Theme Park! You are fun and adventurous. You like excitement and being with people."
+};
+
+document.getElementById("show-result").addEventListener("click", function () {
+  let winner = "beach";   // start by assuming beach is winning
+
+  for (let spot in scores) {
+    if (scores[spot] > scores[winner]) {   // is this spot's score higher than the current winner's score?
+      winner = spot;
+    }
+  }
+
+  document.getElementById("result-text").textContent = resultDescriptions[winner];
+  document.getElementById("result-container").style.display = "block";
+});
