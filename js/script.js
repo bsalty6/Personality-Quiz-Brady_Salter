@@ -39,3 +39,16 @@ document.getElementById("show-result").addEventListener("click", function () {
   document.getElementById("result-text").textContent = resultDescriptions[winner];
   document.getElementById("result-container").style.display = "block";
 });
+
+
+document.getElementById("retake").addEventListener("click", function () {
+  scores = { beach: 0, city: 0, cabin: 0, themepark: 0 };
+
+  buttons.forEach(function (b) {
+    b.disabled = false;
+    b.classList.remove("active");
+  });
+
+  document.getElementById("result-container").style.display = "none";
+  window.scrollTo(0, 0);
+});
