@@ -9,5 +9,13 @@ buttons.forEach(function (button) {
     let choice = button.dataset.answer;      // read this button's data-answer value
     scores[choice]++;                   // add 1 to that spot in scores
     console.log(scores);    // so you can watch it change
+  
+    // lock this question and highlight the pick
+    let block = button.closest(".question-block");
+    let blockButtons = block.querySelectorAll(".answer-btn");
+    blockButtons.forEach(function (b) {
+      b.disabled = true;
+    });
+    button.classList.add("active");   // add the Bootstrap class "active" to the clicked button
   });
 });
